@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>S7 Allocator</title>
+	<meta name="description" content="Use S7 Allocator to...">
+
+
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+
+	<!-- Bootstrap (not needed because of netdna CDN)
+	<link href="css/bootstrap.min.css" rel="stylesheet" media="screen"> -->
+	<!-- Latest compiled and minified CSS -->
+	<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+	
+
+	<link href="https://cdn.datatables.net/1.10.0/css/jquery.dataTables.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/fixedheader/2.1.1/css/dataTables.fixedHeader.css" rel="stylesheet">
+	<link href="https://cdn.datatables.net/plug-ins/e9421181788/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet">
+
+	<!-- Optional theme 
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+	-->
+	<!-- Custom styles for this template -->
+
+	<link href="assets/css/style.css" rel="stylesheet">
+
+
+	<!-- this is here so that you can call the root url in links wherever needed -->
+	<script> var BASE_URL = 'http://www.s7fundops.com/'; </script>
+
+	<link rel="icon" href="favicon.ico" type="image/x-icon" /> 
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,800,300' rel='stylesheet' type='text/css'>
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+	  <script src="assets/js/html5shiv.js"></script>
+	  <script src="assets/js/respond.min.js"></script>
+	<![endif]-->
+ 
+</head>
+<body>
+
+	<div id="wrap"> <!-- added this to get the sticky footer-->
+
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">					
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					 </button>
+					
+					<a class="navbar-brand" rel="home" href="#" title="S7 Allocator">
+						<img class="nav-logo" src="assets/img/S7-Allocator-logo-v3.png" alt="S7 Allocator logo">
+						<!-- <div class="name">
+							S7 <span class="fund-ops">Allocator</span>
+						</div> -->
+					</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+
+						<!-- temporarily hidden
+						<li>
+							<button type="button" class="btn btn-link navbar-btn">
+								Contact
+							</button>
+						</li>
+						-->
+
+						<li>
+							<button type="button" class="btn btn-link navbar-btn">
+								Sign Out
+							</button>
+						</li>
+
+					</ul>
+				</div>
+			</div>
+		</div> <!-- navbar end -->
+				
+			
+		<div id="contents"> <!-- this is where the primary content should be substituted -->
+		
+			<div class="container" style="margin-top:50px">
+				<div class="col-xs-4 col-xs-offset-4">
+					<div class="panel panel-default">
+						<div class="panel-heading"><h3 class="panel-title"><strong>Sign in </strong></h3></div>
+						<div class="panel-body">
+							<form id="sign-in" role="form">
+								<div class="form-group">
+									<label for="exampleInputEmail1">Email</label>
+									<input type="email" class="form-control" style="border-radius:0px" id="exampleInputEmail1" placeholder="Enter email">
+								</div>
+								<div class="form-group">
+									<label for="exampleInputPassword1">Password <a href="/sessions/forgot_password">(forgot password)</a></label>
+									<input type="password" class="form-control" style="border-radius:0px" id="exampleInputPassword1" placeholder="Password">
+								</div>
+								<a class="btn btn-default blue">Sign in</a>
+								<!-- <button type="submit" class="btn btn-sm btn-default">Sign in</button> -->
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+		</div> <!-- contents -->
+	
+
+	</div>	<!-- end wrap -->
+
+
+
+	<div class="footer navbar-fixed-bottom" id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="row">
+						<div class="col-xs-6">
+							Powered by <a class="powered-by" href="http://www.s7fundops.com"> S7 Fund Ops </a>
+						</div>
+						<div class="col-xs-6">
+							<div class="text-right">
+								<div class="copyright">
+									&copy; 2014
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- /container -->
+	</div> <!-- footer -->	
+
+
+
+
+	<!-- modal -->
+	<div class="modal fade dataModal1" id="dataModal1" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+		    <div>div to be replaced</div>
+		</div>
+	</div>	
+
+
+	<!-- Existing/New Tiered Allocation selection -->
+
+	<div id="select-allocation-model-content" class="hide">
+		<div class="container" id="select-allocation-model">
+			<div class="row">
+
+				<div class="col-xs-8 col-xs-offset-2">
+					<h3>Select an allocation model:</h3>
+					<div class="list-group">
+						<a class="list-group-item btn">
+							Sample Allocation Model 1
+						</a>
+						<a class="list-group-item btn">
+							Sample Allocation Model 2
+						</a>
+						<a class="list-group-item btn">
+							Sample Allocation Model 3
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Existing/New Tiered Allocation selection -->
+
+	<div id="existing-or-new-content" class="hide">
+		<div class="container" id="existing-or-new-allocation">
+
+			<div class="row">
+
+				<div class="col-xs-10 col-xs-offset-1">
+
+					<ul class="nav nav-tabs">
+						<li class="active"><a href="#new-tier-content" data-toggle="tab">New Allocation</a></li>
+					  	<li><a href="#existing-tier-content" data-toggle="tab">Existing Allocations</a></li>
+					</ul>
+					
+					<div id="allocation-tab-content" class="tab-content">
+						<div class="tab-pane active" id="new-tier-content">
+							
+							<form role="form">
+								<div class="row">
+									<div class="form-group col-xs-10">
+										<label for="inputDescription1">Description</label>
+										<textarea class="form-control" rows="3" id="inputDescription1" placeholder="enter allocation description"></textarea>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-xs-4">
+										<label for="inputDate1">Calculation Date</label>
+										<input type="date" class="form-control" id="inputDate1" placeholder="select date">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-xs-4">
+										<label for="inputGPAllocation1">Maximum Carry</label>
+										<input type="number" class="form-control" id="inputGPAllocation1" placeholder="enter maximum carry">
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group col-xs-6">
+										<label for="inputFile1">'Investment Capital' csv upload:</label><br>
+										<span class="btn btn-default btn-sm btn-file">
+											choose Investment Capital file<input type="file">
+										</span>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="form-group col-xs-6">
+										<label for="inputFile1">'Investment Activity' csv upload:</label><br>
+										<span class="btn btn-default btn-sm btn-file">
+											choose Investment Activity file<input type="file">
+										</span>
+									</div>
+								</div>
+
+								<div class="row">
+									<div class="form-group col-xs-6">
+										<label for="inputFile1">'Terms' csv upload:</label><br>
+										<span class="btn btn-default btn-sm btn-file">
+											choose Terms file<input type="file">
+										</span>
+									</div>
+								</div>
+
+								<a type="submit" class="btn btn-default blue">Allocate</a>
+							</form>
+
+						</div>
+						<div class="tab-pane" id="existing-tier-content">
+							<h3>Select an existing Tiered Allocation:</h3>
+							<table class="table table-hover table-bordered">
+								<thead>
+							        <tr>
+							            <th>ID</th>
+							            <th>Description</th>
+							            <th>Calc Date</th>
+							            <th>Status</th>
+							        </tr>
+							    </thead>
+							    <tbody>
+							        <tr>
+							            <td class="text-center">001</td>
+							            <td><a href="#">Allocation Model 1.0</a></td>
+							            <td class="text-center">06/21/2014</td>
+							            <td>Draft</td>
+							        </tr>
+							        <tr>
+							            <td class="text-center">002</td>
+							            <td><a href="#">Allocation Model 1.1</a></td>
+							            <td class="text-center">06/21/2014</td>
+							            <td>Internal Review</td>
+							        </tr>
+							        <tr>
+							            <td class="text-center">003</td>
+							            <td><a href="#">Allocation Model 1.2</a></td>
+							            <td class="text-center">06/21/2014</td>
+							            <td>Client Review</td>
+							        </tr>
+							        <tr>
+							            <td class="text-center">004</td>
+							            <td><a href="#">Allocation Model 1.3</a></td>
+							            <td class="text-center">06/22/2014</td>
+							            <td>Client Approved</td>
+							        </tr>
+							        <tr>
+							            <td class="text-center">005</td>
+							            <td><a href="#">Allocation Model 1.4</a></td>
+							            <td class="text-center">06/23/2014</td>
+							            <td>Finalized and Exported</td>
+							        </tr>
+							    </tbody>
+							
+							</table>
+
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+
+	<!-- main data page content -->
+
+	<div id="main-data-content" class="hide">
+
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-xs-12">
+
+					<div class="controls">
+
+						<ol class="breadcrumb allocation-breadcrumb">
+						  <li><a href="#">Firm Name</a></li>
+						  <li><a href="#">Fund Name</a></li>
+						  <li class="active">Tiered Allocation Model Name</li>
+						</ol>
+
+						<div class="btn-group">
+							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Edit inputs">
+								<span class="glyphicon glyphicon-edit"></span>
+								Edit Inputs
+							</button>
+							<!-- hide temporarily
+							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Update table to reflect changes in source data">
+								<span class="glyphicon glyphicon-refresh"></span>
+								Refresh Source Data
+							</button>
+							-->
+							<!-- hide temporarily
+							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Hard code new data in the table">Adjustment</button>
+							-->
+							<div class="btn-group">
+								<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+									Save <span class="caret"></span>
+								</button>
+								<ul class="dropdown-menu" role="menu">
+								    <li><a href="">Save</a></li>
+								    <li><a href="">Save As</a></li>
+								</ul>
+							</div>
+							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Export to .csv">
+								<span class="glyphicon glyphicon-export"></span>
+								Export data
+							</button>
+							<!-- hide temporarily
+							<button type="button" class="btn btn-default">Investran</button>
+							-->
+
+						</div>
+
+					</div>
+
+				</div>
+
+			</div>
+
+
+
+			<div class ="row">
+			
+				<div class="col-xs-12">
+
+					<div class="data">
+
+						<div class="tabs-below">
+
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#tab1" data-toggle="tab">Waterfall Results</a></li>
+							  	<li><a href="#tab2" data-toggle="tab">Investment Capital</a></li>
+							  	<li><a href="#tab3" data-toggle="tab">Unrealized Capital</a></li>
+							  	<li><a href="#tab4" data-toggle="tab">Terms</a></li>
+							</ul>
+
+							<!-- Tab panes -->
+							<div class="tab-content">
+							  	<div class="tab-pane active" id="tab1">
+									<table class="table table-hover table-striped table-bordered table-condensed" id="table1">
+										<thead class="text-center">
+											<tr>
+												<th class="col000 row000">Investor</th>
+												<th class="col001 row000">Investor ID</th>
+												<th class="col002 row000">Proceeds</th>
+												<th class="col003 row000">T1P1 Max</th>
+												<th class="col004 row000">T1P2 Max</th>
+												<th class="col005 row000">T1P1 Actual</th>
+												<th class="col006 row000">T1P2 Actual</th>
+												<th class="col007 row000">Remaining</th>
+												<th class="col008 row000">T2P1 Max</th>
+												<th class="col009 row000">T2P2 Max</th>
+												<th class="col010 row000">T2P1 Actual</th>
+												<th class="col011 row000">T2P2 Actual</th>
+												<th class="col012 row000">Remaining</th>
+												<th class="col013 row000">T3P1 Max</th>
+												<th class="col014 row000">T3P2 Max</th>
+												<th class="col015 row000">T3P1 Actual</th>
+												<th class="col016 row000">T3P2 Actual</th>
+												<th class="col017 row000">Remaining</th>
+												<th class="col018 row000">T4P1 Max</th>
+												<th class="col019 row000">T4P2 Max</th>
+												<th class="col020 row000">T4P1 Actual</th>
+												<th class="col021 row000">T4P2 Actual</th>
+												<th class="col022 row000">Remaining</th>
+												<th class="col023 row000">T5P1 Max</th>
+												<th class="col024 row000">T5P2 Max</th>
+												<th class="col025 row000">T5P1 Actual</th>
+												<th class="col026 row000">T5P2 Actual</th>
+												<th class="col027 row000">Remaining</th>
+												<th class="col028 row000">T6P1 Max</th>
+												<th class="col029 row000">T6P2 Max</th>
+												<th class="col030 row000">T6P1 Actual</th>
+												<th class="col031 row000">T6P2 Actual</th>
+												<th class="col032 row000">Remaining</th>
+												<th class="col033 row000">T7P1 Max</th>
+												<th class="col034 row000">T7P2 Max</th>
+												<th class="col035 row000">T7P1 Actual</th>
+												<th class="col036 row000">T7P2 Actual</th>
+												<th class="col037 row000">Remaining</th>
+												<th class="col038 row000">T8P1 Actual</th>
+												<th class="col039 row000">T8P2 Actual</th>
+												<th class="col040 row000">P1 Total</th>
+												<th class="col041 row000">P2 Total</th>
+											</tr>
+										</thead>
+										<tbody class="text-right">
+											<tr>
+												<td class="col000 row001 text-left">Test Investor 00</td>
+												<td class="col001 row001" >11100</td>
+												<td class="col002 row001 dollar">
+													<a class="btn-link level1A" data-toggle="modal" data-target=".dataModal1">
+														7,000.00
+													</a>
+												</td>
+												<td class="col003 row001 dollar">2,700.00</td>
+												<td class="col004 row001 dollar">0.00</td>
+												<td class="col005 row001 dollar">2,700.00</td>
+												<td class="col006 row001 dollar">0.00</td>
+												<td class="col007 row001 dollar">4,300.00</td>
+												<td class="col008 row001 dollar">300.00</td>
+												<td class="col009 row001 dollar">0.00</td>
+												<td class="col010 row001 dollar">300.00</td>
+												<td class="col011 row001 dollar">0.00</td>
+												<td class="col012 row001 dollar">4000.00</td>
+												<td class="col013 row001 dollar">250.00</td>
+												<td class="col014 row001 dollar">0.00</td>
+												<td class="col015 row001 dollar">250.00</td>
+												<td class="col016 row001 dollar">0.00</td>
+												<td class="col017 row001 dollar">3,750.00</td>
+												<td class="col018 row001 dollar">234.70</td>
+												<td class="col019 row001 dollar">0.00</td>
+												<td class="col020 row001 dollar">234.70</td>
+												<td class="col021 row001 dollar">0.00</td>
+												<td class="col022 row001 dollar">3,515.30</td>
+												<td class="col023 row001 dollar">60.00</td>
+												<td class="col024 row001 dollar">0.00</td>
+												<td class="col025 row001 dollar">60.00</td>
+												<td class="col026 row001 dollar">0.00</td>
+												<td class="col027 row001 dollar">3,455.30</td>
+												<td class="col028 row001 dollar">961.37</td>
+												<td class="col029 row001 dollar">0.00</td>
+												<td class="col030 row001 dollar">961.37</td>
+												<td class="col031 row001 dollar">0.00</td>
+												<td class="col032 row001 dollar">2493.93</td>
+												<td class="col033 row001 dollar">0.00</td>
+												<td class="col034 row001 dollar">240.34</td>
+												<td class="col035 row001 dollar">0.00</td>
+												<td class="col036 row001 dollar">240.34</td>
+												<td class="col037 row001 dollar">2,253.59</td>
+												<td class="col038 row001 dollar">1,802.87</td>
+												<td class="col039 row001 dollar">450.72</td>
+												<td class="col040 row001 dollar">6,308.94</td>
+												<td class="col041 row001 dollar">691.06</td>
+
+											</tr>
+
+											<tr>
+												<td class="col000 row002 text-left">Test Investor 01</td>
+												<td class="col001 row002">11101</td>
+												<td class="col002 row002 dollar">			
+														7,000.00
+													</a>
+												</td>
+												<td class="col003 row002 dollar">2,700.00</td>
+												<td class="col004 row002 dollar">0.00</td>
+												<td class="col005 row002 dollar">2,700.00</td>
+												<td class="col006 row002 dollar">0.00</td>
+												<td class="col007 row002 dollar">4,300.00</td>
+												<td class="col008 row002 dollar">300.00</td>
+												<td class="col009 row002 dollar">0.00</td>
+												<td class="col010 row002 dollar">300.00</td>
+												<td class="col011 row002 dollar">0.00</td>
+												<td class="col012 row002 dollar">4,000.00</td>
+												<td class="col013 row002 dollar">250.00</td>
+												<td class="col014 row002 dollar">0.00</td>
+												<td class="col015 row002 dollar">250.00</td>
+												<td class="col016 row002 dollar">0.00</td>
+												<td class="col017 row002 dollar">3,750.00</td>
+												<td class="col018 row002 dollar">234.70</td>
+												<td class="col019 row002 dollar">0.00</td>
+												<td class="col020 row002 dollar">234.70</td>
+												<td class="col021 row002 dollar">0.00</td>
+												<td class="col022 row002 dollar">3,515.30</td>
+												<td class="col023 row002 dollar">60.00</td>
+												<td class="col024 row002 dollar">0.00</td>
+												<td class="col025 row002 dollar">60.00</td>
+												<td class="col026 row002 dollar">0.00</td>
+												<td class="col027 row002 dollar">3,455.30</td>
+												<td class="col028 row002 dollar">961.37</td>
+												<td class="col029 row002 dollar">0.00</td>
+												<td class="col030 row002 dollar">961.37</td>
+												<td class="col031 row002 dollar">0.00</td>
+												<td class="col032 row002 dollar">2,493.93</td>
+												<td class="col033 row002 dollar">0.00</td>
+												<td class="col034 row002 dollar">240.34</td>
+												<td class="col035 row002 dollar">0.00</td>
+												<td class="col036 row002 dollar">240.34</td>
+												<td class="col037 row002 dollar">2,253.59</td>
+												<td class="col038 row002 dollar">1,802.87</td>
+												<td class="col039 row002 dollar">450.72</td>
+												<td class="col040 row002 dollar">6,308.94</td>
+												<td class="col041 row002 dollar">691.06</td>
+
+											</tr>
+
+											<tr>
+												<td class="col000 row003 text-left">Test Investor 02</td>
+												<td class="col001 row003">11102</td>
+												<td class="col002 row003 dollar">
+														17,500.00
+												</td>
+												<td class="col003 row003 dollar">6,750.00</td>
+												<td class="col004 row003 dollar">0.00</td>
+												<td class="col005 row003 dollar">6,750.00</td>
+												<td class="col006 row003 dollar">0.00</td>
+												<td class="col007 row003 dollar">10,750.00</td>
+												<td class="col008 row003 dollar">750.00</td>
+												<td class="col009 row003 dollar">0.00</td>
+												<td class="col010 row003 dollar">750.00</td>
+												<td class="col011 row003 dollar">0.00</td>
+												<td class="col012 row003 dollar">10,000.00</td>
+												<td class="col013 row003 dollar">625.00</td>
+												<td class="col014 row003 dollar">0.00</td>
+												<td class="col015 row003 dollar">625.00</td>
+												<td class="col016 row003 dollar">0.00</td>
+												<td class="col017 row003 dollar">9,375.00</td>
+												<td class="col018 row003 dollar">586.75</td>
+												<td class="col019 row003 dollar">0.00</td>
+												<td class="col020 row003 dollar">586.75</td>
+												<td class="col021 row003 dollar">0.00</td>
+												<td class="col022 row003 dollar">8,788.25</td>
+												<td class="col023 row003 dollar">150.00</td>
+												<td class="col024 row003 dollar">0.00</td>
+												<td class="col025 row003 dollar">150.00</td>
+												<td class="col026 row003 dollar">0.00</td>
+												<td class="col027 row003 dollar">8,638.25</td>
+												<td class="col028 row003 dollar">2403.42</td>
+												<td class="col029 row003 dollar">0.00</td>
+												<td class="col030 row003 dollar">2,403.42</td>
+												<td class="col031 row003 dollar">0.00</td>
+												<td class="col032 row003 dollar">6,234.83</td>
+												<td class="col033 row003 dollar">0.00</td>
+												<td class="col034 row003 dollar">600.85</td>
+												<td class="col035 row003 dollar">0.00</td>
+												<td class="col036 row003 dollar">600.85</td>
+												<td class="col037 row003 dollar">5,633.98</td>
+												<td class="col038 row003 dollar">4,507.18</td>
+												<td class="col039 row003 dollar">1,126.80</td>
+												<td class="col040 row003 dollar">15,772.35</td>
+												<td class="col041 row003 dollar">1,727.65</td>
+
+											</tr>
+
+											<tr>
+												<td class="col000 row004 text-left">Test Investor 03</td>
+												<td class="col001 row004">11102</td>
+												<td class="col002 row004 dollar">			
+														70,000.00
+												</td>
+												<td class="col003 row004 dollar">27,000.00</td>
+												<td class="col004 row004 dollar">0.00</td>
+												<td class="col005 row004 dollar">27,000.00</td>
+												<td class="col006 row004 dollar">0.00</td>
+												<td class="col007 row004 dollar">43,000.00</td>
+												<td class="col008 row004 dollar">3,000.00</td>
+												<td class="col009 row004 dollar">0.00</td>
+												<td class="col010 row004 dollar">3,000.00</td>
+												<td class="col011 row004 dollar">0.00</td>
+												<td class="col012 row004 dollar">40,000.00</td>
+												<td class="col013 row004 dollar">-</td>
+												<td class="col014 row004 dollar">0.00</td>
+												<td class="col015 row004 dollar">-</td>
+												<td class="col016 row004 dollar">0.00</td>
+												<td class="col017 row004 dollar">40,000.00</td>
+												<td class="col018 row004 dollar">5,800.00</td>
+												<td class="col019 row004 dollar">0.00</td>
+												<td class="col020 row004 dollar">5,800.00</td>
+												<td class="col021 row004 dollar">0.00</td>
+												<td class="col022 row004 dollar">34,200.00</td>
+												<td class="col023 row004 dollar">600.00</td>
+												<td class="col024 row004 dollar">0.00</td>
+												<td class="col025 row004 dollar">600.00</td>
+												<td class="col026 row004 dollar">0.00</td>
+												<td class="col027 row004 dollar">33,600.00</td>
+												<td class="col028 row004 dollar">9,481.75</td>
+												<td class="col029 row004 dollar">0.00</td>
+												<td class="col030 row004 dollar">9,481.75</td>
+												<td class="col031 row004 dollar">0.00</td>
+												<td class="col032 row004 dollar">24,118.25</td>
+												<td class="col033 row004 dollar">0.00</td>
+												<td class="col034 row004 dollar">2,370.44</td>
+												<td class="col035 row004 dollar">0.00</td>
+												<td class="col036 row004 dollar">2,370.44</td>
+												<td class="col037 row004 dollar">21,747.82</td>
+												<td class="col038 row004 dollar">17,398.25</td>
+												<td class="col039 row004 dollar">4,349.56</td>
+												<td class="col040 row004 dollar">63,280.00</td>
+												<td class="col041 row004 dollar">6,720.00</td>
+
+											</tr>
+
+											
+											<tfoot class="text-right">
+												<tr>
+													<td class="col000 row005 text-left"><strong>TOTAL</strong></td>
+													<td class="col001 row005"><strong></strong></td>
+													<td class="col002 row005 dollar"><strong>101,500.00</strong></td>
+													<td class="col003 row005 dollar"><strong>39,150.00</strong></td>
+													<td class="col004 row005 dollar"><strong>0.00</strong></td>
+													<td class="col005 row005 dollar"><strong>39,150.00</strong></td>
+													<td class="col006 row005 dollar"><strong>0.00</strong></td>
+													<td class="col007 row005 dollar"><strong>62,350.00</strong></td>
+													<td class="col008 row005 dollar"><strong>4,350.00</strong></td>
+													<td class="col009 row005 dollar"><strong>0.00</strong></td>
+													<td class="col010 row005 dollar"><strong>4,350.00</strong></td>
+													<td class="col011 row005 dollar"><strong>0.00</strong></td>
+													<td class="col012 row005 dollar"><strong>58,000.00</strong></td>
+													<td class="col013 row005 dollar"><strong>1,125.00</strong></td>
+													<td class="col014 row005 dollar"><strong>0.00</strong></td>
+													<td class="col015 row005 dollar"><strong>1,125.00</strong></td>
+													<td class="col016 row005 dollar"><strong>0.00</strong></td>
+													<td class="col017 row005 dollar"><strong>56,875.00</strong></td>
+													<td class="col018 row005 dollar"><strong>6,856.15</strong></td>
+													<td class="col019 row005 dollar"><strong>0.00</strong></td>
+													<td class="col020 row005 dollar"><strong>6,856.15</strong></td>
+													<td class="col021 row005 dollar"><strong>0.00</strong></td>
+													<td class="col022 row005 dollar"><strong>50,018.85</strong></td>
+													<td class="col023 row005 dollar"><strong>870.00</strong></td>
+													<td class="col024 row005 dollar"><strong>0.00</strong></td>
+													<td class="col025 row005 dollar"><strong>870.00</strong></td>
+													<td class="col026 row005 dollar"><strong>0.00</strong></td>
+													<td class="col027 row005 dollar"><strong>49,148.85</strong></td>
+													<td class="col028 row005 dollar"><strong>13,807.90</strong></td>
+													<td class="col029 row005 dollar"><strong>0.00</strong></td>
+													<td class="col030 row005 dollar"><strong>13,807.90</strong></td>
+													<td class="col031 row005 dollar"><strong>0.00</strong></td>
+													<td class="col032 row005 dollar"><strong>35,340.95</strong></td>
+													<td class="col033 row005 dollar"><strong>0.00</strong></td>
+													<td class="col034 row005 dollar"><strong>3,318.45</strong></td>
+													<td class="col035 row005 dollar"><strong>0.00</strong></td>
+													<td class="col036 row005 dollar"><strong>3,318.45</strong></td>
+													<td class="col037 row005 dollar"><strong>32,022.50</strong></td>
+													<td class="col038 row005 dollar"><strong>25,856.71</strong></td>
+													<td class="col039 row005 dollar"><strong>6,165.79</strong></td>
+													<td class="col040 row005 dollar"><strong>92,015.76</strong></td>
+													<td class="col041 row005 dollar"><strong>9,484.24</strong></td>
+												</tr>
+											</tfoot>
+
+										</tbody>
+									</table>
+
+
+							  	</div>
+							  	<div class="tab-pane" id="tab2">Investment Capital table</div>
+							  	<div class="tab-pane" id="tab3">Unrealized Capital table</div>
+							  	<div class="tab-pane" id="tab4">Terms table</div>
+							</div>
+
+						</div> <!-- tabs below -->
+						
+					</div>
+				</div> <!-- /div col-md-12 -->
+			</div> <!-- /div row -->
+		</div> <!-- /container -->
+
+
+	</div>
+
+
+	<!-- Modal-Content1A -->
+
+	<div id="modal-content-1-hide" class="hide"> 
+		<div id="modal-content1A" class="modal-content">
+	      	<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		    	<h4 class="modal-title">Test Investor 00</h4>
+		    	<h5 class="modal-title">Investor ID: 11100</h4>
+		    	<h5 class="modal-title"> Proceeds</h5>
+		    </div>
+		    <div class="modal-body">
+
+	        	<div class="secondary-data">
+	        		<table class="table table-hover table-striped table-bordered table-condensed" id="table2">
+						<thead class="text-center">
+							<tr>
+								<th>Disposition Proceeds</th>
+								<th>CI in Excess of Unrealized Return</th>
+								<th>Proceeds</th>
+							</tr>
+						</thead>
+						<tbody class="text-right">
+							<tr>
+								<td class="dollar">
+									<a class="btn-link level1B">
+										7,000.00
+									</a>
+								</td>
+								<td class="dollar">0.00</td>
+								<td class="dollar">7,000.00</td>
+							</tr>
+
+						</tbody>
+					</table>
+	        	</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	    	    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+	      	</div>
+	    </div>
+
+	    <!-- Modal Content 1B -->
+
+		<div id='modal-content1B' class='modal-content'>
+			<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		    	<h4 class="modal-title">
+		    		<a class="btn-link level1A">
+		    			<span class="glyphicon glyphicon-chevron-left"></span>
+		    		</a>
+		    		Test Investor 00
+		    	</h4>
+		    	<h5 class="modal-title">Investor ID: 11100</h4>
+		    	<h5 class="modal-title"> Disposition Proceeds</h5>
+		    </div>
+		    <div class="modal-body">
+
+	        	<div class="secondary-data">
+	        		<table class="table table-hover table-striped table-bordered table-condensed" id="table2">
+						<thead class="text-center">
+							<tr>
+								<th>Position</th>
+								<th>Posiiton ID</th>
+								<th>Effective Date</th>
+								<th>Trans Type</th>
+								<th>Amount</th>
+								<th>Realized %</th>
+								<th>Disposition Proceeds</th>
+							</tr>
+						</thead>
+						<tbody class="text-right">
+							<tr>
+								<td class="text-left">General Motors</td>
+								<td class="text-center">101</td>
+								<td class="date text-center">9/30/10</td>
+								<td class="text text-left">Distribution - Current Income</td>
+								<td class="dollar">(1,500.00)</td>
+								<td class="percent">
+									<a class="btn-link level1C" data-toggle="modal" data-target=".dataModal1">
+										0%
+									</a>
+								</td>
+								<td class="dollar">-</td>
+							</tr>
+							<tr>
+								<td class="text-left">IBM</td>
+								<td class="text-center">100</td>
+								<td class="date text-center">12/31/10</td>
+								<td class="text text-left">Distribution - Scheduled Paydown</td>
+								<td class="dollar">(300.00)</td>
+								<td class="percent">
+										100%
+								</td>
+								<td class="dollar">(300.00)</td>
+							</tr>
+							<tr>
+								<td class="text-left">IBM</td>
+								<td class="text-center">100</td>
+								<td class="date text-center">3/31/11</td>
+								<td class="text text-left">Distribution - Return of Capital</td>
+								<td class="dollar">(2,700.00)</td>
+								<td class="percent">
+										100%
+								</td>
+								<td class="dollar">(2,700.00)</td>
+							</tr>
+							<tr>
+								<td class="text-left">IBM</td>
+								<td class="text-center">100</td>
+								<td class="date text-center">3/31/11</td>
+								<td class="text text-left">Distribution - Realized Gain</td>
+								<td class="dollar">(4,000.00)</td>
+								<td class="percent">
+										100%
+								</td>
+								<td class="dollar">(4,000.00)</td>
+							</tr>
+						</tbody>
+					</table>
+	        	</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	    	    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+	      	</div>
+
+		</div>
+		
+		<!-- Modal Content 1C -->
+
+		<div id='modal-content1C' class='modal-content'>
+			<div class="modal-header">
+	        	<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		    	<h4 class="modal-title">
+		    		<a class="btn-link level1B">
+		    			<span class="glyphicon glyphicon-chevron-left"></span>
+		    		</a>
+		    		Test Investor 00
+		    	</h4>
+		    	<h5 class="modal-title">Investor ID: 11100</h4>
+		    	<h5 class="modal-title"> Disposition Proceeds</h5>
+		    </div>
+		    <div class="modal-body">
+
+	        	<div class="secondary-data">
+	        		<table class="table table-hover table-striped table-bordered table-condensed" id="table2">
+						<thead class="text-center">
+							<tr>
+								<th>Position</th>
+								<th>Posiiton ID</th>
+								<th>Effective Date</th>
+								<th>Trans Type</th>
+								<th>Distribution - Current Income</th>
+								<th>Cost Basis at time of Current Income</th>
+								<th>Return of Capital after Current Income</th>
+								<th>Realized % of Current Income</th>
+
+							</tr>
+						</thead>
+						<tbody class="text-right">
+							<tr>
+								<td class="text-left">General Motors</td>
+								<td class="text-center">101</td>
+								<td class="date text-center">9/30/10</td>
+								<td class="text text-left">Distribution - Current Income</td>
+								<td class="dollar">(1,500.00)</td>
+								<td class="dollar">
+									<a class="btn-link level1D" data-toggle="modal" data-target=".dataModal1">
+										(5,000.00)
+									</a>
+								</td>
+								<td class="dollar">-</td>
+								<td class="percent">0%</td>
+							</tr>
+						</tbody>
+					</table>
+	        	</div>
+	      	</div>
+	      	<div class="modal-footer">
+	        	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	    	    <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+	      	</div>
+
+		</div>
+	<div>
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed 
+	<script src="js/bootstrap.min.js"></script> -->
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.0/js/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/fixedheader/2.1.1/js/dataTables.fixedHeader.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/plug-ins/e9421181788/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+	<!-- <script type="text/javascript" src="assets/js/csvtoarray.js"></script> -->
+	<script type="text/javascript" src="assets/js/jquery.csv-0.71.js"></script>
+	<script type="text/javascript" src="assets/js/scripts.js"></script>
+
+</body>
+</html>
