@@ -7,26 +7,35 @@ $( document ).ready(function() {
 
 	$( "#sign-in a").click(function() {
 
-		$("#contents > div").replaceWith( $( "#select-allocation-model-content > div" ).clone() );
-		
-		$( "#select-allocation-model a").click(function() {
+		var logInEmail = document.getElementById("exampleInputEmail1").value;
+		var logInPass = document.getElementById("exampleInputPassword1").value;
 
-			$("#contents > div").replaceWith( $( "#existing-or-new-content > div" ).clone() );
-			$("[data-toggle='tooltip']").tooltip();
-			noNumberScroll();
+		if (logInEmail == "user1@s7fundops.com" && logInPass == "C2vK6Jfy") {
 
-			$( "#allocation-tab-content a").click(function() {
+			$("#contents > div").replaceWith( $( "#select-allocation-model-content > div" ).clone() );
+			
+			$( "#select-allocation-model a").click(function() {
 
-				$("#contents > div").replaceWith( $( "#main-data-content > div" ).clone() );
+				$("#contents > div").replaceWith( $( "#existing-or-new-content > div" ).clone() );
 				$("[data-toggle='tooltip']").tooltip();
+				noNumberScroll();
 
-				fixModalLinks();
+				$( "#allocation-tab-content a").click(function() {
+
+					$("#contents > div").replaceWith( $( "#main-data-content > div" ).clone() );
+					$("[data-toggle='tooltip']").tooltip();
+
+					fixModalLinks();
 
 
+
+				});
 
 			});
-
-		});
+		}
+		else { 
+			//nothing
+		}
 
 	});
 
