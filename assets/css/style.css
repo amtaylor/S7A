@@ -95,6 +95,11 @@ a {
 	font-weight: bold;
 }
 
+#existing-tier-content .glyphicon-trash {
+	top: 3px;
+}
+
+
 .panel-default > .panel-heading {
 	background-color: rgb(79,129,189);
 	color: white;

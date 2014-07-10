@@ -78,7 +78,12 @@ $( document ).ready(function() {
 		  $(this).off('mousewheel.disableScroll')
 		})
 
-	}	
+	}
+
+
+	$('#signout').click(function() {
+	    location.reload();
+	});
 
 
     //generate data
