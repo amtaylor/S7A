@@ -92,6 +92,7 @@
 					<div class="panel panel-default">
 						<div class="panel-heading"><h3 class="panel-title"><strong>Sign in </strong></h3></div>
 						<div class="panel-body">
+							<p class="error-msg">The user name or password is incorrect</p>
 							<form id="sign-in" role="form">
 								<div class="form-group">
 									<label for="exampleInputEmail1">Email</label>
@@ -159,14 +160,40 @@
 				<div class="col-xs-8 col-xs-offset-2">
 					<h3>Select an allocation model:</h3>
 					<div class="list-group">
-						<a class="list-group-item btn">
+						<a class="list-group-item btn working">
 							Sample Allocation Model 1
 						</a>
+						<!--
 						<a class="list-group-item btn">
 							Sample Allocation Model 2
 						</a>
 						<a class="list-group-item btn">
 							Sample Allocation Model 3
+						</a>
+						-->
+						<a class="list-group-item btn">
+							Blackstone Hypo
+						</a>
+						<a class="list-group-item btn">
+							BX2 CI
+						</a>
+						<a class="list-group-item btn">
+							BX2D CI
+						</a>
+						<a class="list-group-item btn">
+							BX2O CI
+						</a>
+						<a class="list-group-item btn">
+							Mount Kellet Distribution
+						</a>
+						<a class="list-group-item btn">
+							Mount Kellet Hypo
+						</a>
+						<a class="list-group-item btn">
+							Tailwind II Distribution
+						</a>
+						<a class="list-group-item btn">
+							Tailwind II Hypo
 						</a>
 					</div>
 				</div>
@@ -182,6 +209,17 @@
 			<div class="row">
 
 				<div class="col-xs-10 col-xs-offset-1">
+
+					<button type="button" class="btn btn-default btn-sm btn-go-back" id="go-back-to-allocationmodel">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+						Go Back
+					</button>
+
+					<ol class="breadcrumb allocation-breadcrumb">
+						<li>Firm Name</li>
+						<li>Fund Name</li>
+						<li class="active">Tiered Allocation Model Name</li>
+					</ol>
 
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#new-tier-content" data-toggle="tab">New Allocation</a></li>
@@ -210,6 +248,7 @@
 										<input type="number" class="form-control" id="inputGPAllocation1" placeholder="enter maximum carry">
 									</div>
 								</div>
+								<!-- hidden temporarily
 								<div class="row">
 									<div class="form-group col-xs-6">
 										<label for="inputFile1">'Investment Capital' csv upload:</label><br>
@@ -236,6 +275,7 @@
 										</span>
 									</div>
 								</div>
+								-->
 
 								<a type="submit" class="btn btn-default blue">Allocate</a>
 							</form>
@@ -255,45 +295,45 @@
 							    </thead>
 							    <tbody>
 							        <tr>
-							            <td class="text-center">001</td>
-							            <td><a href="#">Allocation Model 1.0</a></td>
-							            <td class="text-center">06/21/2014</td>
-							            <td>Draft</td>
-							            <td class="text-center">
-							            	<button class="btn btn-default btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
-							            </td>
-							        </tr>
-							        <tr>
-							            <td class="text-center">002</td>
-							            <td><a href="#">Allocation Model 1.1</a></td>
-							            <td class="text-center">06/21/2014</td>
-							            <td>Internal Review</td>
-							            <td class="text-center">
-							            	<button class="btn btn-default btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
-							            </td>
-							        </tr>
-							        <tr>
-							            <td class="text-center">003</td>
-							            <td><a href="#">Allocation Model 1.2</a></td>
-							            <td class="text-center">06/21/2014</td>
-							            <td>Client Review</td>
+							            <td class="text-center">005</td>
+							            <td><a href="#">IBM Q2 2014 Dividend</a></td>
+							            <td class="text-center">07/27/2014</td>
+							            <td>Approved Internally, Pending Client Review</td>
 							            <td class="text-center">
 							            	<button class="btn btn-default btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
 							            </td>
 							        </tr>
 							        <tr>
 							            <td class="text-center">004</td>
-							            <td><a href="#">Allocation Model 1.3</a></td>
-							            <td class="text-center">06/22/2014</td>
-							            <td>Client Approved</td>
+							            <td><a href="#">Alpha Co. Feb 2014 Sale</a></td>
+							            <td class="text-center">02/15/2014</td>
+							            <td>Finalized and Exported</td>
 							            <td class="text-center">
 							            	<button class="btn btn-default btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
 							            </td>
 							        </tr>
 							        <tr>
-							            <td class="text-center">005</td>
-							            <td><a href="#">Allocation Model 1.4</a></td>
-							            <td class="text-center">06/23/2014</td>
+							            <td class="text-center">003</td>
+							            <td><a href="#">GM Nov 2013 Sale</a></td>
+							            <td class="text-center">11/01/2013</td>
+							            <td>Finalized and Exported</td>
+							            <td class="text-center">
+							            	<button class="btn btn-default btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
+							            </td>
+							        </tr>
+							        <tr>
+							            <td class="text-center">002</td>
+							            <td><a href="#">IBM Q2 2013 Dividend</a></td>
+							            <td class="text-center">07/26/2013</td>
+							            <td>Finalized and Exported</td>
+							            <td class="text-center">
+							            	<button class="btn btn-default btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
+							            </td>
+							        </tr>
+							        <tr>
+							            <td class="text-center">001</td>
+							            <td><a href="#">GM Mar 2013 Sale</a></td>
+							            <td class="text-center">03/31/2013</td>
 							            <td>Finalized and Exported</td>
 							            <td class="text-center">
 							            	<button class="btn btn-default btn-xs" data-title="Delete" data-toggle="modal" data-target="#delete" data-placement="top" rel="tooltip"><span class="glyphicon glyphicon-trash"></span></button>
@@ -327,23 +367,27 @@
 
 					<div class="controls">
 
+						<button type="button" class="btn btn-default btn-sm btn-go-back" id="go-back-to-existing-or-new-allocation">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+							Go Back
+						</button>
+
 						<ol class="breadcrumb allocation-breadcrumb">
-						  <li><a href="#">Firm Name</a></li>
-						  <li><a href="#">Fund Name</a></li>
+						  <li>Firm Name</li>
+						  <li>Fund Name</li>
 						  <li class="active">Tiered Allocation Model Name</li>
 						</ol>
 
 						<div class="btn-group">
-							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Edit inputs">
+							<button type="button" class="btn btn-default" id="edit-inputs">
 								<span class="glyphicon glyphicon-edit"></span>
 								Edit Inputs
 							</button>
-							<!-- hide temporarily
+							<!-- hide temporarily-->
 							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Update table to reflect changes in source data">
 								<span class="glyphicon glyphicon-refresh"></span>
 								Refresh Source Data
 							</button>
-							-->
 							<!-- hide temporarily
 							<button type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" data-container="body" title="Hard code new data in the table">Adjustment</button>
 							-->
@@ -360,9 +404,9 @@
 								<span class="glyphicon glyphicon-export"></span>
 								Export data
 							</button>
-							<!-- hide temporarily
+							<!-- hide temporarily-->
 							<button type="button" class="btn btn-default">Investran</button>
-							-->
+							
 
 						</div>
 

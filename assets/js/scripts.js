@@ -10,15 +10,23 @@ $( document ).ready(function() {
 		var logInEmail = document.getElementById("exampleInputEmail1").value;
 		var logInPass = document.getElementById("exampleInputPassword1").value;
 
-		if (logInEmail == "user1@s7fundops.com" && logInPass == "C2vK6Jfy") {
+		if (logInEmail == "ttaylor@s7fundops.com" && logInPass == "demo") {
+
+			$( ".error-msg" ).css( "display", "none" );
 
 			$("#contents > div").replaceWith( $( "#select-allocation-model-content > div" ).clone() );
 			
-			$( "#select-allocation-model a").click(function() {
+			$( "#select-allocation-model a.working").click(function() {
 
 				$("#contents > div").replaceWith( $( "#existing-or-new-content > div" ).clone() );
 				$("[data-toggle='tooltip']").tooltip();
 				noNumberScroll();
+
+				$( "#go-back-to-allocationmodel").click(function() {
+
+					// not sure what to put here given the if statement that also has to pass...
+
+				});
 
 				$( "#allocation-tab-content a").click(function() {
 
@@ -27,6 +35,17 @@ $( document ).ready(function() {
 
 					fixModalLinks();
 
+					$( "#edit-inputs").click(function() {
+
+						$( "#select-allocation-model a").click();
+
+					});
+
+					$( "#go-back-to-existing-or-new-allocation").click(function() {
+
+						$( "#select-allocation-model a").click();
+
+					});
 
 
 				});
@@ -34,7 +53,9 @@ $( document ).ready(function() {
 			});
 		}
 		else { 
-			//nothing
+
+			$( ".error-msg" ).css( "display", "block" );
+
 		}
 
 	});

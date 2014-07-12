@@ -90,6 +90,12 @@ a {
 
 */
 
+.error-msg {
+	display: none;
+	color: red;
+	font-style: italic;
+}
+
 #existing-tier-content h3{
 	font-size: 16px;
 	font-weight: bold;
@@ -161,7 +167,7 @@ th {
 }
 
 .data {
-	margin-top: 105px;
+	margin-top: 135px;
 	margin-bottom: 20px;
 }
 
@@ -293,14 +299,25 @@ table.dataTable {
 /* existing or new allocationview */
 
 #existing-or-new-allocation {
-	margin-top: 50px;
+	margin-top: 20px;
 	margin-bottom: 10px;
+}
+
+#existing-or-new-allocation .breadcrumb {
+	margin-bottom: 20px;
 }
 
 #existing-or-new-allocation #allocation-tab-content a {
 	font-size: 16px;
 }
 
+button.btn-go-back {
+	font-size: 12px;
+}
+
+.controls button.btn-go-back {
+	font-size: 12px;
+}
 
 #allocation-tab-content {
 	padding: 30px;
