@@ -10,7 +10,7 @@ $( document ).ready(function() {
 		var logInEmail = document.getElementById("exampleInputEmail1").value;
 		var logInPass = document.getElementById("exampleInputPassword1").value;
 
-		if (logInEmail == "ttaylor@s7fundops.com" && logInPass == "demo") {
+		if (logInEmail == "ttaylor@s7fundops.com" && logInPass == "demo123") {
 
 			$( ".error-msg" ).css( "display", "none" );
 
