@@ -1,0 +1,149 @@
+/* generic table stuff */
+
+.data thead {
+	text-align: center;
+	background-color: rgb(79,129,189);
+	color: white;
+}
+
+.data tbody {
+	text-align: right;
+}	
+
+.data tbody td:nth-child(1) {
+	text-align: left;
+	min-width: 140px;
+}
+
+.data tfoot {
+	text-align: right;
+	font-weight: bold;
+}
+
+/* added this because not sure how else to not make column headers wrap on every word*/
+.data tbody td {
+	min-width: 120px;
+}
+
+
+/* specific tables */
+
+/* table 1 */
+
+#table1 
+
+/* table 2 */
+
+#table2 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table2 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 3 */
+
+
+#table3 th:nth-child(n+18) {
+	color: black;
+	background-color: rgb(220,230,241);
+}
+
+#table3 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table3 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 4 */
+
+#table4 th:nth-child(n+10) {
+	color: black;
+	background-color: rgb(220,230,241);
+}
+
+#table4 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table4 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 5 */
+
+#table5 th:nth-child(n+10) {
+	color: black;
+	background-color: rgb(220,230,241);
+}
+
+#table5 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table5 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 6 */
+
+#table6 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table6 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 7 */
+
+#table7 th:nth-child(n+13) {
+	color: black;
+	background-color: rgb(220,230,241);
+}
+
+#table7 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table7 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 8 */
+
+#table8 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table8 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 9 */
+
+#table9 th:nth-child(n+19) {
+	color: black;
+	background-color: rgb(220,230,241);
+}
+
+#table9 tbody td:nth-child(3) {
+	text-align: center;
+}
+
+#table9 tbody td:nth-child(6) {
+	text-align: center;
+}
+
+/* table 10 */
+
+#table10 th:nth-child(n+4) {
+	color: black;
+	background-color: rgb(220,230,241);
+}
+
+
+
